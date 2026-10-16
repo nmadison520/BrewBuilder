@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 /**
  * Console user interface for BrewBuilder.
- * Allows a customer to choose food or a drink
- * and customize a drink's size and flavor.
+ * Allows the customer to select food or drinks
+ * and customize drink size and flavor.
  *
  * @author Madison
  * @version October 2026
@@ -41,8 +41,8 @@ public class BrewBuilderApp
 
     /**
      * Runs the customer ordering process.
-     * The customer chooses a menu item.
-     * Drinks can be customized by size and flavor.
+     * Allows the customer to select an item
+     * and customize drinks by size and flavor.
      */
     public void run()
     {
@@ -63,8 +63,71 @@ public class BrewBuilderApp
 
         if (choice == 1)
         {
-            String size = chooseSize(input);
-            String flavor = chooseFlavor(input);
+            System.out.println();
+            System.out.println("Choose a size:");
+            System.out.println("1 - Small");
+            System.out.println("2 - Medium");
+            System.out.println("3 - Large");
+
+            int sizeChoice = input.nextInt();
+
+            String size = "";
+
+            if (sizeChoice == 1)
+            {
+                size = "Small";
+            }
+            else if (sizeChoice == 2)
+            {
+                size = "Medium";
+            }
+            else if (sizeChoice == 3)
+            {
+                size = "Large";
+            }
+            else
+            {
+                System.out.println("Invalid size.");
+            }
+
+
+            System.out.println();
+            System.out.println("Choose a flavor:");
+            System.out.println("1 - None");
+            System.out.println("2 - Vanilla");
+            System.out.println("3 - Caramel");
+            System.out.println("4 - Hazelnut");
+            System.out.println("5 - Pumpkin");
+
+            int flavorChoice = input.nextInt();
+
+            String flavor = "";
+
+            if (flavorChoice == 1)
+            {
+                flavor = "None";
+            }
+            else if (flavorChoice == 2)
+            {
+                flavor = "Vanilla";
+            }
+            else if (flavorChoice == 3)
+            {
+                flavor = "Caramel";
+            }
+            else if (flavorChoice == 4)
+            {
+                flavor = "Hazelnut";
+            }
+            else if (flavorChoice == 5)
+            {
+                flavor = "Pumpkin";
+            }
+            else
+            {
+                System.out.println("Invalid flavor.");
+            }
+
 
             if (!size.equals("") && !flavor.equals(""))
             {
@@ -74,10 +137,75 @@ public class BrewBuilderApp
                 currentOrder.addItem(drink);
             }
         }
+
+
         else if (choice == 2)
         {
-            String size = chooseSize(input);
-            String flavor = chooseFlavor(input);
+            System.out.println();
+            System.out.println("Choose a size:");
+            System.out.println("1 - Small");
+            System.out.println("2 - Medium");
+            System.out.println("3 - Large");
+
+            int sizeChoice = input.nextInt();
+
+            String size = "";
+
+            if (sizeChoice == 1)
+            {
+                size = "Small";
+            }
+            else if (sizeChoice == 2)
+            {
+                size = "Medium";
+            }
+            else if (sizeChoice == 3)
+            {
+                size = "Large";
+            }
+            else
+            {
+                System.out.println("Invalid size.");
+            }
+
+
+            System.out.println();
+            System.out.println("Choose a flavor:");
+            System.out.println("1 - None");
+            System.out.println("2 - Vanilla");
+            System.out.println("3 - Caramel");
+            System.out.println("4 - Hazelnut");
+            System.out.println("5 - Pumpkin");
+
+            int flavorChoice = input.nextInt();
+
+            String flavor = "";
+
+            if (flavorChoice == 1)
+            {
+                flavor = "None";
+            }
+            else if (flavorChoice == 2)
+            {
+                flavor = "Vanilla";
+            }
+            else if (flavorChoice == 3)
+            {
+                flavor = "Caramel";
+            }
+            else if (flavorChoice == 4)
+            {
+                flavor = "Hazelnut";
+            }
+            else if (flavorChoice == 5)
+            {
+                flavor = "Pumpkin";
+            }
+            else
+            {
+                System.out.println("Invalid flavor.");
+            }
+
 
             if (!size.equals("") && !flavor.equals(""))
             {
@@ -87,6 +215,8 @@ public class BrewBuilderApp
                 currentOrder.addItem(drink);
             }
         }
+
+
         else if (choice == 3)
         {
             FoodItem food =
@@ -94,6 +224,8 @@ public class BrewBuilderApp
 
             currentOrder.addItem(food);
         }
+
+
         else if (choice == 4)
         {
             FoodItem food =
@@ -101,6 +233,8 @@ public class BrewBuilderApp
 
             currentOrder.addItem(food);
         }
+
+
         else
         {
             System.out.println("Invalid choice.");
@@ -112,89 +246,5 @@ public class BrewBuilderApp
         System.out.println(currentOrder.reviewOrder());
 
         input.close();
-    }
-
-
-    /**
-     * Allows the customer to choose a drink size.
-     *
-     * @param input Scanner used for user input
-     * @return selected size or an empty String
-     *         if the choice is invalid
-     */
-    public String chooseSize(Scanner input)
-    {
-        System.out.println();
-        System.out.println("Choose a size:");
-        System.out.println("1 - Small");
-        System.out.println("2 - Medium");
-        System.out.println("3 - Large");
-
-        int sizeChoice = input.nextInt();
-
-        if (sizeChoice == 1)
-        {
-            return "Small";
-        }
-        else if (sizeChoice == 2)
-        {
-            return "Medium";
-        }
-        else if (sizeChoice == 3)
-        {
-            return "Large";
-        }
-        else
-        {
-            System.out.println("Invalid size.");
-            return "";
-        }
-    }
-
-
-    /**
-     * Allows the customer to choose a drink flavor.
-     *
-     * @param input Scanner used for user input
-     * @return selected flavor or an empty String
-     *         if the choice is invalid
-     */
-    public String chooseFlavor(Scanner input)
-    {
-        System.out.println();
-        System.out.println("Choose a flavor:");
-        System.out.println("1 - None");
-        System.out.println("2 - Vanilla");
-        System.out.println("3 - Caramel");
-        System.out.println("4 - Hazelnut");
-        System.out.println("5 - Pumpkin");
-
-        int flavorChoice = input.nextInt();
-
-        if (flavorChoice == 1)
-        {
-            return "None";
-        }
-        else if (flavorChoice == 2)
-        {
-            return "Vanilla";
-        }
-        else if (flavorChoice == 3)
-        {
-            return "Caramel";
-        }
-        else if (flavorChoice == 4)
-        {
-            return "Hazelnut";
-        }
-        else if (flavorChoice == 5)
-        {
-            return "Pumpkin";
-        }
-        else
-        {
-            System.out.println("Invalid flavor.");
-            return "";
-        }
     }
 }
