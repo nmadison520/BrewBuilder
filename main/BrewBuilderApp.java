@@ -2,34 +2,46 @@ package main;
 import java.util.Scanner;
 
 /**
- * Console user interface for BrewBuilder
+ * Console user interface for BrewBuilder.
+ * Displays menu choices, reads user input,
+ * and adds the selected item to an order.
+ *
+ * @author Madison
+ * @version October 2026
  */
-public class BrewBuilderApp {
+public class BrewBuilderApp
+{
     private Order currentOrder;
     private Menu menu;
 
-    // ----------------------------------------------------------
-    /**
-     * Create a new BrewBuilderApp object.
-     */
-    public BrewBuilderApp() {
-        // initialize menu and order
-    }
 
     /**
-     * Starts the customer interaction workflow
+     * Creates a new BrewBuilder application.
+     * Initializes the menu and an empty order.
+     */
+    public BrewBuilderApp()
+    {
+        menu = new Menu();
+        currentOrder = new Order();
+    }
+
+
+    /**
+     * Starts the BrewBuilder application.
+     *
      * @param args command-line arguments
      */
-    public static void main(String[] args) {
-        // handle user input/output
+    public static void main(String[] args)
+    {
         BrewBuilderApp app = new BrewBuilderApp();
         app.run();
     }
 
+
     /**
-     * Runs the basic customer ordering workflow.
-     * The customer chooses one menu item and
-     * the selected item is added to the order.
+     * Runs the customer ordering workflow.
+     * Displays choices, reads the customer's
+     * selection, and adds the item to the order.
      */
     public void run()
     {
@@ -42,40 +54,46 @@ public class BrewBuilderApp {
         System.out.println("4 - Bagel");
 
         System.out.println("Enter your choice:");
-        
+
         int choice = input.nextInt();
-        
-        if(choice==1)
+
+        if (choice == 1)
         {
-            currentOrder.addItem(
-                new Drink("Coffee", "Medium"));
+            Drink drink =
+                new Drink("Coffee", "Medium", "None");
+
+            currentOrder.addItem(drink);
         }
         else if (choice == 2)
         {
-            currentOrder.addItem(
-                new Drink("Latte", "Medium"));
+            Drink drink =
+                new Drink("Latte", "Medium", "Vanilla");
+
+            currentOrder.addItem(drink);
         }
-        else if(choice==3)
+        else if (choice == 3)
         {
-            currentOrder.addItem(
-                new FoodItem("Muffin"));
+            FoodItem food =
+                new FoodItem("Muffin", "Bakery");
+
+            currentOrder.addItem(food);
         }
-        else if (choice==4)
+        else if (choice == 4)
         {
-            currentOrder.addItem(
-                new FoodItem("Bagel"));
+            FoodItem food =
+                new FoodItem("Bagel", "Bakery");
+
+            currentOrder.addItem(food);
         }
         else
         {
             System.out.println("Invalid choice.");
         }
 
+        System.out.println();
         System.out.println("Your order:");
         System.out.println(currentOrder.reviewOrder());
 
         input.close();
-        
-        
-        }
+    }
 }
-    
