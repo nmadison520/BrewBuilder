@@ -150,7 +150,7 @@ public class Order
     /** Removes all items from the order. */
     public void clearOrder()
     {
-        return items.clear();
+        items.clear();
     }
 
 
