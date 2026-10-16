@@ -70,11 +70,14 @@ Remaining unknowns include the final form of the complete console interaction an
 What doesn't work yet?
 The prototype is still being completed.
 
-The remaining work includes fully implementing and testing all public `Order` methods, completing invalid-input handling in the console application, finishing drink customization behavior, and making the application support a complete multi-step customer order rather than only the first working interaction.
+The remaining work includes fully implementing and testing all public `Order` methods, completing invalid-input handling in the console application, finishing drink customization, and making the application support a complete multi-step customer order rather than only the first working interaction.
+
+Drink customization is part of the planned BrewBuilder functionality. Customers should eventually be able to choose supported options such as drink size and flavor.
 
 Some test classes are also still being completed. Every public application method must have both a normal test case and a bad-input or boundary test case before the final submission.
 
-The final application must also be tested as one complete workflow after the individual classes pass their unit tests.
+The full application must also be tested as one complete workflow after the individual classes pass their unit tests.
+
 
 - 
 
@@ -84,28 +87,58 @@ The remaining MVP work will be completed in this order:
 
 1. Finish the implementation of all `Order` methods.
 2. Complete the tests for `Order`.
-3. Confirm that `MenuItem`, `Drink`, `FoodItem`, and `Menu` behave correctly.
-4. Complete the tests for those classes.
-5. Finish the `BrewBuilderApp` console interaction.
-6. Add invalid-input handling so incorrect choices do not crash the application.
+3. Finish and test `MenuItem`, `Drink`, `FoodItem`, and `Menu`.
+4. Complete drink customization so customers can choose valid sizes and flavors.
+5. Add validation for invalid drink sizes and flavors.
+6. Finish the `BrewBuilderApp` console interaction.
 7. Allow the customer to add more than one item to an order.
-8. Support reviewing, removing, clearing, and confirming the order.
-9. Run the full application workflow and correct any integration problems.
-10. Run all tests and confirm that they pass.
-- 
-Which stretch goals will you attempt? 
+8. Support reviewing, searching, updating, removing, and clearing items.
+9. Prevent an empty order from being confirmed.
+10. Add invalid-input handling so incorrect user choices do not crash the application.
+11. Run the complete application workflow and correct any integration problems.
+12. Run all tests and confirm that they pass.
 
-After the MVP works correctly, we plan to attempt drink customization as our main stretch goal.
+## Which stretch goals will you attempt?
 
-This includes allowing a customer to select a supported drink size and flavor rather than always using a default value.
+After the complete BrewBuilder MVP is working correctly, our main stretch goal will be adding a rewards system.
 
-If time permits, we may also improve the console workflow so the customer can continue editing an order until they choose to confirm it.
+The rewards system would allow a customer to earn rewards based on completed orders. A future version could keep track of information such as reward points or the number of completed purchases and allow those rewards to be used for a benefit.
+
+Because the rewards system is a stretch goal, it will only be added after the required ordering features, drink customization, validation, and tests are complete.
 
 Payment processing, saved orders, dynamic pricing, and from-scratch recipes will remain outside the scope of this project.
+
 - 
 What new tests will you need?
+Additional tests will be needed as the remaining MVP methods are implemented.
 
+These include:
 
+- Adding a valid item to an order.
+- Attempting to add a null item.
+- Removing a valid item by position.
+- Attempting to remove an item using an invalid position.
+- Retrieving an item from a valid position.
+- Attempting to retrieve an item from an invalid position.
+- Searching for an item name that exists.
+- Searching for an item name that does not exist.
+- Updating an item at a valid position.
+- Attempting to update an invalid position.
+- Clearing a nonempty order.
+- Clearing an already empty order.
+- Confirming a nonempty order.
+- Rejecting confirmation of an empty order.
+- Preserving duplicate items.
+- Preserving insertion order.
+- Selecting a valid drink size.
+- Rejecting an invalid drink size.
+- Selecting a valid drink flavor.
+- Rejecting an invalid drink flavor.
+- Handling invalid console input without crashing the application.
+
+If the rewards system is implemented, additional stretch-goal tests will be added to check that rewards are earned correctly and that invalid rewards behavior is handled safely.
+
+Each public application method will have at least one normal test case and one bad-input or boundary test case.
 
 - 
 Who does what?
