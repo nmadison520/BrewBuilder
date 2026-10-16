@@ -10,7 +10,7 @@ public abstract class MenuItem {
      * @param name the name
      */
     public MenuItem(String name) {
-        if (name == null || name.trim().isEmpty()) {
+        if (name == null || name.equals("")){
             throw new IllegalArgumentException(
                 "Item name cannot be null or blank"
             );
