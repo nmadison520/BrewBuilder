@@ -14,6 +14,7 @@ public class BrewBuilderApp
 {
     private Order currentOrder;
     private Menu menu;
+    private RewardsAccount rewards;
 
 
     /**
@@ -24,6 +25,7 @@ public class BrewBuilderApp
     {
         menu = new Menu();
         currentOrder = new Order();
+        rewards= new RewardsAccount();
     }
 
 
@@ -244,6 +246,27 @@ public class BrewBuilderApp
         System.out.println();
         System.out.println("Your order:");
         System.out.println(currentOrder.reviewOrder());
+        
+        System.out.println();
+        System.out.println("Your order:");
+        System.out.println(currentOrder.reviewOrder());
+
+        if (currentOrder.canConfirm())
+        {
+            rewards.addOrderPoints();
+
+            System.out.println();
+            System.out.println("Order completed!");
+            System.out.println("You earned 10 reward points.");
+            System.out.println(
+                "Current reward points: " + rewards.getPoints());
+
+            if (rewards.canRedeem())
+            {
+                System.out.println(
+                    "You have enough points to redeem a reward!");
+            }
+        }
 
         input.close();
     }
