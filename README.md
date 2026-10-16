@@ -162,3 +162,21 @@ Who does what?
 | TestMenuItem | Sebastian, Madison | Drafted, Revised |
 | TestOrder | Oliver | Initialized |
 | README | Everyone | Wrote | 
+
+# GenAI Usage
+
+Generative AI was used as a support tool during the development of BrewBuilder.
+
+We used ChatGPT to help:
+
+- Interpret the Deliverable 3 instructions and rubric.
+- Compare our implementation with the original Deliverable 2 specification.
+- Clarify Java concepts and method behavior.
+- Suggest possible JUnit test cases using `student.TestCase`.
+- Review JavaDoc wording and README organization.
+- Identify differences between our original design and the provided `LinkedChain` class.
+- Help troubleshoot implementation and GitHub/Eclipse workflow issues.
+
+Any suggested code or documentation was reviewed and edited by group members before being included in the project. We kept the implementation within the Java concepts used in CS 2114 and made sure group members could explain the code and tests included in the submission.
+
+GenAI was not used to modify the provided `LinkedChain.java` implementation.
