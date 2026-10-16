@@ -1,5 +1,7 @@
 package test;
 
+import main.*;
+
 // -------------------------------------------------------------------------
 /**
  * Tests the Order class. These tests check that items can be added, removed,
@@ -10,7 +12,7 @@ package test;
  * @version Oct 16, 2026
  */
 public class TestOrder
-    extends TestCase
+    extends student.TestCase
 {
     // ----------------------------------------------------------
     /**
@@ -34,7 +36,7 @@ public class TestOrder
     {
         Order order = new Order();
 
-        Drink drink = new Drink("Latte", "Medium");
+        Drink drink = new Drink("Latte", "Medium", "Caramel");
         order.addItem(drink);
 
         assertEquals(1, order.getSize());
@@ -51,8 +53,8 @@ public class TestOrder
     {
         Order order = new Order();
 
-        Drink drink = new Drink("Latte", "Medium");
-        FoodItem food = new FoodItem("Muffin");
+        Drink drink = new Drink("Latte", "Medium", "Caramel");
+        FoodItem food = new FoodItem("Muffin", "Bakery");
 
         order.addItem(drink);
         order.addItem(food);
@@ -73,8 +75,8 @@ public class TestOrder
     {
         Order order = new Order();
 
-        Drink drink = new Drink("Latte", "Medium");
-        FoodItem food = new FoodItem("Muffin");
+        Drink drink = new Drink("Latte", "Medium", "Caramel");
+        FoodItem food = new FoodItem("Muffin", "Bakery");
 
         order.addItem(drink);
         order.addItem(food);
@@ -109,7 +111,7 @@ public class TestOrder
     {
         Order order = new Order();
 
-        Drink drink = new Drink("Coffee", "Medium");
+        Drink drink = new Drink("Coffee", "Medium", "Caramel");
         order.addItem(drink);
 
         assertEquals(drink, order.getItem(0));
@@ -124,7 +126,7 @@ public class TestOrder
     public void testContainsName()
     {
         Order order = new Order();
-        order.addItem(new Drink("Latte", "Medium"));
+        order.addItem(new Drink("Latte", "Medium", "Caramel"));
 
         assertTrue(order.containsName("Latte"));
         assertFalse(order.containsName("Tea"));
@@ -140,7 +142,7 @@ public class TestOrder
         Order order = new Order();
         assertEquals(0, order.getSize());
 
-        order.addItem(new FoodItem("Bagel"));
+        order.addItem(new FoodItem("Bagel", "Bakery"));
         assertEquals(1, order.getSize());
 
     }
@@ -154,8 +156,8 @@ public class TestOrder
     {
         Order order = new Order();
 
-        order.addItem(new Drink("Coffee", "Medium"));
-        order.addItem(new FoodItem("Muffin"));
+        order.addItem(new Drink("Coffee", "Medium", "Caramel"));
+        order.addItem(new FoodItem("Muffin", "Bakery"));
 
         order.clearOrder();
 
@@ -188,7 +190,7 @@ public class TestOrder
 
         assertFalse(order.canConfirm());
 
-        order.addItem(new Drink("Latte", "Medium"));
+        order.addItem(new Drink("Latte", "Medium", "Caramel"));
 
         assertTrue(order.canConfirm());
     }
