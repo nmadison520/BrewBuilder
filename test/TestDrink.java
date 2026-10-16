@@ -7,7 +7,7 @@ import student.TestCase;
 /**
  * Tests the Drink class.
  */
-public class TestDrink extends TestCase {
+public class TestDrink extends student.TestCase {
 
     private Drink drink;
 

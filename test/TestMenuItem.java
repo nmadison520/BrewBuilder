@@ -1,8 +1,5 @@
 package test;
 
-import student.TestCase;
-import main.MenuItem;
-import main.FoodItem;
 
 import main.MenuItem;
 import main.FoodItem;
