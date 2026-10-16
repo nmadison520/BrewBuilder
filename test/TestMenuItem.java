@@ -1,7 +1,4 @@
-import student.TestCase;
-import main.MenuItem;
-import main.FoodItem;
-
+F
 package test;
 
 import main.MenuItem;
