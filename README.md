@@ -70,7 +70,7 @@ Remaining unknowns include the final form of the complete console interaction an
 What doesn't work yet?
 The prototype is still being completed.
 
-The remaining work includes fully implementing and testing all public `Order` methods, completing invalid-input handling in the console application, finishing drink customization, and making the application support a complete multi-step customer order rather than only the first working interaction.
+The remaining work includes completing invalid-input handling in the console application, finishing drink customization, and making the application support a complete multi-step customer order rather than only the first working interaction.
 
 Drink customization is part of the planned BrewBuilder functionality. Customers should eventually be able to choose supported options such as drink size and flavor.
 
