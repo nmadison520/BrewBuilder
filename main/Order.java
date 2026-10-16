@@ -97,6 +97,7 @@ public class Order
             }
         }
 
+        return false;
     }
 
 
@@ -143,7 +144,7 @@ public class Order
     public int getSize()
     {
         return items.size();
-        ;
+
     }
 
 
@@ -165,6 +166,6 @@ public class Order
     public String reviewOrder()
     {
         return items.toString();
-        ;
+
     }
 }
