@@ -3,9 +3,8 @@ package main;
 import java.util.Scanner;
 
 /**
- * Console user interface for BrewBuilder.
- * Allows the customer to select food or drinks
- * and customize drink size and flavor.
+ * Console user interface for BrewBuilder. Allows the customer to select food or
+ * drinks and customize drink size and flavor.
  *
  * @author Madison
  * @version October 2026
@@ -16,23 +15,23 @@ public class BrewBuilderApp
     private Menu menu;
     private RewardsAccount rewards;
 
-
     /**
-     * Creates a new BrewBuilder application.
-     * Initializes the menu and an empty order.
+     * Creates a new BrewBuilder application. Initializes the menu and an empty
+     * order.
      */
     public BrewBuilderApp()
     {
         menu = new Menu();
         currentOrder = new Order();
-        rewards= new RewardsAccount();
+        rewards = new RewardsAccount();
     }
 
 
     /**
      * Starts the BrewBuilder application.
      *
-     * @param args command-line arguments
+     * @param args
+     *            command-line arguments
      */
     public static void main(String[] args)
     {
@@ -42,8 +41,7 @@ public class BrewBuilderApp
 
 
     /**
-     * Runs the customer ordering process.
-     * Allows the customer to select an item
+     * Runs the customer ordering process. Allows the customer to select an item
      * and customize drinks by size and flavor.
      */
     public void run()
@@ -61,7 +59,6 @@ public class BrewBuilderApp
         System.out.println("Enter your choice:");
 
         int choice = input.nextInt();
-
 
         if (choice == 1)
         {
@@ -92,7 +89,6 @@ public class BrewBuilderApp
                 System.out.println("Invalid size.");
             }
 
-
             System.out.println();
             System.out.println("Choose a flavor:");
             System.out.println("1 - None");
@@ -130,16 +126,13 @@ public class BrewBuilderApp
                 System.out.println("Invalid flavor.");
             }
 
-
             if (!size.equals("") && !flavor.equals(""))
             {
-                Drink drink =
-                    new Drink("Coffee", size, flavor);
+                Drink drink = new Drink("Coffee", size, flavor);
 
                 currentOrder.addItem(drink);
             }
         }
-
 
         else if (choice == 2)
         {
@@ -170,7 +163,6 @@ public class BrewBuilderApp
                 System.out.println("Invalid size.");
             }
 
-
             System.out.println();
             System.out.println("Choose a flavor:");
             System.out.println("1 - None");
@@ -208,45 +200,37 @@ public class BrewBuilderApp
                 System.out.println("Invalid flavor.");
             }
 
-
             if (!size.equals("") && !flavor.equals(""))
             {
-                Drink drink =
-                    new Drink("Latte", size, flavor);
+                Drink drink = new Drink("Latte", size, flavor);
 
                 currentOrder.addItem(drink);
             }
         }
 
-
         else if (choice == 3)
         {
-            FoodItem food =
-                new FoodItem("Muffin", "Bakery");
+            FoodItem food = new FoodItem("Muffin", "Bakery");
 
             currentOrder.addItem(food);
         }
-
 
         else if (choice == 4)
         {
-            FoodItem food =
-                new FoodItem("Bagel", "Bakery");
+            FoodItem food = new FoodItem("Bagel", "Bakery");
 
             currentOrder.addItem(food);
         }
-
 
         else
         {
             System.out.println("Invalid choice.");
         }
 
-
         System.out.println();
         System.out.println("Your order:");
         System.out.println(currentOrder.reviewOrder());
-        
+
         System.out.println();
         System.out.println("Your order:");
         System.out.println(currentOrder.reviewOrder());
@@ -258,13 +242,12 @@ public class BrewBuilderApp
             System.out.println();
             System.out.println("Order completed!");
             System.out.println("You earned 10 reward points.");
-            System.out.println(
-                "Current reward points: " + rewards.getPoints());
+            System.out.println("Current reward points: " + rewards.getPoints());
 
             if (rewards.canRedeem())
             {
-                System.out.println(
-                    "You have enough points to redeem a reward!");
+                System.out
+                    .println("You have enough points to redeem a reward!");
             }
         }
 

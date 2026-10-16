@@ -80,26 +80,23 @@ Some test classes are also still being completed. Every public application metho
 
 The full application must also be tested as one complete workflow after the individual classes pass their unit tests.
 
-
 - 
 
 ## Next Steps
-What is left to finish the MVP?
 The remaining MVP work will be completed in this order:
 
-1. Finish the implementation of all `Order` methods.
-2. Complete the tests for `Order`.
-3. Finish and test `MenuItem`, `Drink`, `FoodItem`, and `Menu`.
-4. Add the `Ingredient` class and support inside of the `MenuItem` superclass.
-5. Complete drink customization so customers can choose valid sizes and flavors.
-6. Add validation for invalid drink sizes and flavors.
-7. Finish the `BrewBuilderApp` console interaction.
-8. Allow the customer to add more than one item to an order.
-9. Support reviewing, searching, updating, removing, and clearing items.
-10. Prevent an empty order from being confirmed.
-11. Add invalid-input handling so incorrect user choices do not crash the application.
-12. Run the complete application workflow and correct any integration problems.
-13. Run all tests and confirm that they pass.
+1. Finish and verify all `Order` methods.
+2. Complete all `Order` tests.
+3. Verify `MenuItem`, `Drink`, `FoodItem`, and `Menu`.
+4. Complete drink customization testing.
+5. Verify invalid drink sizes and flavors are handled correctly.
+6. Improve the `BrewBuilderApp` console workflow.
+7. Allow the customer to add multiple items in one session.
+8. Support reviewing, searching, updating, removing, and clearing items.
+9. Confirm that an empty order cannot be completed.
+10. Improve invalid-input handling so incorrect choices do not crash the application.
+11. Run the complete application workflow and correct integration issues.
+12. Run all tests and confirm that they pass.
 
 ## Which stretch goals will you attempt?
 
@@ -133,11 +130,16 @@ These include:
 - Rejecting confirmation of an empty order.
 - Preserving duplicate items.
 - Preserving insertion order.
-- Selecting a valid drink size.
-- Rejecting an invalid drink size.
-- Selecting a valid drink flavor.
-- Rejecting an invalid drink flavor.
+- Selecting valid drink sizes.
+- Rejecting invalid drink sizes.
+- Selecting valid drink flavors.
+- Rejecting invalid drink flavors.
 - Handling invalid console input without crashing the application.
+- Confirming that a new rewards account starts at zero points.
+- Confirming that a completed order adds 10 reward points.
+- Confirming that a customer cannot redeem a reward with fewer than 50 points.
+- Confirming that a customer can redeem a reward at 50 points.
+- Confirming that redeeming a reward subtracts 50 points.
 
 If the rewards system is implemented, additional stretch-goal tests will be added to check that rewards are earned correctly and that invalid rewards behavior is handled safely.
 
