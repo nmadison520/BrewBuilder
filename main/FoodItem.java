@@ -12,6 +12,13 @@ public class FoodItem extends MenuItem {
      */
     public FoodItem(String name, String category) {
         super(name);
+        
+        if (category == null || category.trim().isEmpty()) {
+            throw new IllegalArgumentException(
+                "Food category cannot be null or blank"
+            );
+        }
+        
         this.category = category;
     }
 

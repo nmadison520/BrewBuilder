@@ -4,19 +4,19 @@ package main;
  */
 public class Drink extends MenuItem {
     private String size;
-    private String type;
+    private String flavor;
 
     /**
      * Creates a drink
      * @param name drink name
      * @param size selected size
-     * @param flavor selected type
+     * @param flavor selected flavor
      */
-    public Drink(String name, String size, String type) {
+    public Drink(String name, String size, String flavor) {
         super(name);
         
-        this.size = size;
-        this.type = type;
+        setSize(size);
+        setFlavor(flavor);
     }
 
     /** @return selected size */
@@ -26,7 +26,7 @@ public class Drink extends MenuItem {
 
     /** @return selected flavor */
     public String getFlavor() {
-        return type;
+        return flavor;
     }
 
     /**
@@ -35,7 +35,17 @@ public class Drink extends MenuItem {
      * @throws IllegalArgumentException if unsupported
      */
     public void setSize(String size) {
-        
+        if (size == null ||
+            (!size.equalsIgnoreCase("Small") &&
+             !size.equalsIgnoreCase("Medium") &&
+             !size.equalsIgnoreCase("Large"))) {
+
+            throw new IllegalArgumentException(
+                "Invalid drink size"
+            );
+        }
+
+        this.size = size;
     }
 
     /**
@@ -44,16 +54,28 @@ public class Drink extends MenuItem {
      * @throws IllegalArgumentException if unsupported
      */
     public void setFlavor(String flavor) {
-        // TODO: Validate and update flavor.
+        if (flavor == null ||
+            (!flavor.equalsIgnoreCase("None") &&
+             !flavor.equalsIgnoreCase("Vanilla") &&
+             !flavor.equalsIgnoreCase("Caramel") &&
+             !flavor.equalsIgnoreCase("Hazelnut") &&
+             !flavor.equalsIgnoreCase("Pumpkin"))) {
+
+            throw new IllegalArgumentException(
+                "Invalid drink flavor"
+            );
+        }
+
+        this.flavor = flavor;
     }
 
     @Override
     public Drink copy() {
-        return new Drink(getName(), size, type);
+        return new Drink(getName(), size, flavor);
     }
 
     @Override
     public String toString() {
-        return "Name: " + getName();
+        return size + " " + flavor + " " + getName();
     }
 }
