@@ -25,14 +25,17 @@ Who does what?
 
 | Class / Test File | Who? | How? |
 | --- | --- | --- | 
-| BrewBuilderApp | Oliver | Wrote |
+| BrewBuilderApp | Oliver, Madison | Initialized, Wrote |
 | Drink | Oliver, Sebastian | Wrote and Revised | 
 | FoodItem | Oliver, Sebastian | Wrote and Revised |
-| LinkedChain | Oliver | Added | 
+| LinkedChain | Oliver  | Added | 
 | Menu | Oliver, Sebastian | Initialized, Written | 
 | MenuItem | Oliver, Sebastian | Wrote and Revised |
-| Order | Oliver | Initialized |
-| TestDrink | Oliver | Initialized |
-| TestMenu | Oliver | Initialized |
+| Order | Oliver, Madison | Initialized, Wrote |
+| TestBrewBuilderApp | Madison | Wrote |
+| TestDrink | Sebastian | Drafted |
+| TestFoodItem | Sebastian, Madison | Drafted, Revised |
+| TestMenu | Sebastian | Drafted |
+| TestMenuItem | Sebastian, Madison | Drafted, Revised |
 | TestOrder | Oliver | Initialized |
 | README | Everyone | Wrote | 
