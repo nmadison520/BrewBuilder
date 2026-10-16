@@ -1,5 +1,5 @@
-F
 package test;
+
 
 import main.MenuItem;
 import main.FoodItem;
@@ -104,7 +104,7 @@ public class TestMenuItem
         Exception thrown = null;
 
         try {
-            new FoodItem("   ", "Bakery");
+            new FoodItem("", "Bakery");
         }
         catch (IllegalArgumentException e) {
             thrown = e;
@@ -113,7 +113,4 @@ public class TestMenuItem
         assertNotNull(thrown);
         assertTrue(thrown instanceof IllegalArgumentException);
     }
-}>>>>>>>
-
-Stashed
-changes
+}

@@ -74,6 +74,8 @@ The remaining work includes completing invalid-input handling in the console app
 
 Drink customization is part of the planned BrewBuilder functionality. Customers should eventually be able to choose supported options such as drink size and flavor.
 
+To implement this, we'll need to create a new class, Ingredient, which each MenuItem will contain a LinkedChain of. We'll also need to add methods to the base LinkedChain class to manipulate and store the ingredients.
+
 Some test classes are also still being completed. Every public application method must have both a normal test case and a bad-input or boundary test case before the final submission.
 
 The full application must also be tested as one complete workflow after the individual classes pass their unit tests.
@@ -88,15 +90,16 @@ The remaining MVP work will be completed in this order:
 1. Finish the implementation of all `Order` methods.
 2. Complete the tests for `Order`.
 3. Finish and test `MenuItem`, `Drink`, `FoodItem`, and `Menu`.
-4. Complete drink customization so customers can choose valid sizes and flavors.
-5. Add validation for invalid drink sizes and flavors.
-6. Finish the `BrewBuilderApp` console interaction.
-7. Allow the customer to add more than one item to an order.
-8. Support reviewing, searching, updating, removing, and clearing items.
-9. Prevent an empty order from being confirmed.
-10. Add invalid-input handling so incorrect user choices do not crash the application.
-11. Run the complete application workflow and correct any integration problems.
-12. Run all tests and confirm that they pass.
+4. Add the `Ingredient` class and support inside of the `MenuItem` superclass.
+5. Complete drink customization so customers can choose valid sizes and flavors.
+6. Add validation for invalid drink sizes and flavors.
+7. Finish the `BrewBuilderApp` console interaction.
+8. Allow the customer to add more than one item to an order.
+9. Support reviewing, searching, updating, removing, and clearing items.
+10. Prevent an empty order from being confirmed.
+11. Add invalid-input handling so incorrect user choices do not crash the application.
+12. Run the complete application workflow and correct any integration problems.
+13. Run all tests and confirm that they pass.
 
 ## Which stretch goals will you attempt?
 
