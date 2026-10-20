@@ -228,11 +228,12 @@ public class BrewBuilderApp
 
                 int again = input.nextInt();
 
-                if (again == 2)
+                if (again == 1)
                 {
-                    keepRunning = false;
+                    keepRunning = true;
                 }
-                else if (again != 1)
+
+                else
                 {
                     keepRunning = false;
                 }
