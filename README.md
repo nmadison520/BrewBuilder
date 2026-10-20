@@ -146,8 +146,19 @@ If the rewards system is implemented, additional stretch-goal tests will be adde
 Each public application method will have at least one normal test case and one bad-input or boundary test case.
 
 - 
-Who does what?
-- 
+## Who does what?
+Finish and verify all Order methods. - Sebastian
+Complete all Order tests. - Sebastian
+Verify MenuItem, Drink, FoodItem, and Menu. - Sebastian
+Complete drink customization testing. - Sebastian 
+Verify invalid drink sizes and flavors are handled correctly. - Oliver
+Improve the BrewBuilderApp console workflow.- Oliver
+Allow the customer to add multiple items in one session. - Oliver
+Support reviewing, searching, updating, removing, and clearing items. - Oliver
+Confirm that an empty order cannot be completed. - Madison
+Improve invalid-input handling so incorrect choices do not crash the application. - Madison
+Run the complete application workflow and correct integration issues. - Madison
+Run all tests and confirm that they pass. - Madison
 
 ## Attribution
 
