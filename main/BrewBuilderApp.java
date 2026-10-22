@@ -201,6 +201,7 @@ public class BrewBuilderApp
                     System.out.println("Current Order:");
                     System.out.println(currentOrder.reviewOrder());
                 }
+            }
 
                 System.out.println();
                 System.out.println("Final Order:");
@@ -233,18 +234,19 @@ public class BrewBuilderApp
                 {
                     keepRunning = true;
                 }
-
                 else
                 {
                     keepRunning = false;
                 }
             }
+
             System.out.println();
             System.out.println("Thanks for using BrewBuilder!");
-            System.out.println("Final reward points: " + rewards.getPoints());
+            System.out.println("Final reward points: "
+                + rewards.getPoints());
+
             input.close();
         }
-    }
     
     /**
      * Lets the customer add or remove ingredients from a menu item.
