@@ -29,11 +29,16 @@ public class FoodItem extends MenuItem {
 
     @Override
     public FoodItem copy() {
-        return new FoodItem(getName(), category);
+        FoodItem result = new FoodItem(getName(), category);
+        copyIngredientsTo(result);
+        return result;
     }
 
     @Override
     public String toString() {
-        return getName();
+        if (hasNoIngredients()) {
+            return getName();
+        }
+        return getName() + " (Ingredients: " + getIngredients() + ")";
     }
 }
