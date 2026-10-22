@@ -14,7 +14,6 @@ public class Drink extends MenuItem {
      */
     public Drink(String name, String size, String flavor) {
         super(name);
-        
         setSize(size);
         setFlavor(flavor);
     }
@@ -76,6 +75,10 @@ public class Drink extends MenuItem {
 
     @Override
     public String toString() {
-        return size + " " + flavor + " " + getName();
+        String result = size + " " + flavor + " " + getName();
+        if (!hasNoIngredients()) {
+            result += " (Ingredients: " + getIngredients() + ")";
+        }
+        return result;
     }
 }
