@@ -156,7 +156,7 @@ public class BrewBuilderApp
                     if (!size.equals("") && !flavor.equals(""))
                     {
                         Drink drink = new Drink(drinkName, size, flavor);
-
+                        customizeIngredients(drink, input);
                         currentOrder.addItem(drink);
 
                         System.out.println();
@@ -167,6 +167,7 @@ public class BrewBuilderApp
                 else if (choice == 3)
                 {
                     FoodItem food = new FoodItem("Muffin", "Bakery");
+                    customizeIngredients(food, input);
 
                     currentOrder.addItem(food);
 
@@ -175,7 +176,7 @@ public class BrewBuilderApp
                 else if (choice == 4)
                 {
                     FoodItem food = new FoodItem("Bagel", "Bakery");
-
+                    customizeIngredients(food, input);
                     currentOrder.addItem(food);
                     System.out.println("Bagel added to order.");
                 }
@@ -244,4 +245,85 @@ public class BrewBuilderApp
             input.close();
         }
     }
+    
+    /**
+     * Lets the customer add or remove ingredients from a menu item.
+     *
+     * @param item the item being customized
+     * @param input scanner for customer input
+     */
+    private void customizeIngredients(MenuItem item, Scanner input)
+    {
+        boolean customizing = true;
+
+        while (customizing)
+        {
+            System.out.println();
+            System.out.println("Customize " + item.getName());
+            System.out.println("Current ingredients: "
+                + item.getIngredients());
+            System.out.println("1 - Add ingredient");
+            System.out.println("2 - Remove ingredient");
+            System.out.println("3 - Finish customizing");
+            System.out.print("Enter your choice: ");
+
+            int choice = input.nextInt();
+            input.nextLine();
+
+            if (choice == 1)
+            {
+                System.out.print("Enter ingredient to add: ");
+                String name = input.nextLine();
+
+                try
+                {
+                    item.addIngredient(name);
+                    System.out.println(name + " added.");
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println(e.getMessage());
+                }
+            }
+            else if (choice == 2)
+            {
+                if (item.hasNoIngredients())
+                {
+                    System.out.println("There are no ingredients to remove.");
+                }
+                else
+                {
+                    System.out.println("Ingredients:");
+
+                    for (int i = 0; i < item.getIngredientCount(); i++)
+                    {
+                        System.out.println((i + 1) + " - "
+                            + item.getIngredient(i));
+                    }
+
+                    System.out.print("Enter ingredient number to remove: ");
+                    int index = input.nextInt();
+                    input.nextLine();
+
+                    if (item.removeIngredient(index - 1))
+                    {
+                        System.out.println("Ingredient removed.");
+                    }
+                    else
+                    {
+                        System.out.println("Invalid ingredient number.");
+                    }
+                }
+            }
+            else if (choice == 3)
+            {
+                customizing = false;
+            }
+            else
+            {
+                System.out.println("Invalid choice.");
+            }
+        }
+    }
 }
+
