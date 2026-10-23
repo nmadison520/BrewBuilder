@@ -1,6 +1,6 @@
 package test;
 
-
+import main.Ingredient;
 import main.MenuItem;
 import main.FoodItem;
 import student.TestCase;
@@ -56,6 +56,40 @@ public class TestMenuItem
 
 
     /**
+     * tests adding ingredients.
+     */
+    public void testAddIngredients()
+    {
+        item.addIngredient("Milk");
+        item.addIngredient("Sugar");
+
+        assertEquals(2, item.getIngredientCount());
+        assertEquals("Milk", item.getIngredient(0).getName());
+        assertEquals("Sugar", item.getIngredient(1).getName());
+    }
+
+
+    /**
+     * Tests rejecting a null ingredient
+     */
+    public void testAddNullIngredient()
+    {
+        Exception thrown = null;
+
+        try
+        {
+            item.addIngredient((Ingredient)null);
+        }
+        catch (IllegalArgumentException e)
+        {
+            thrown = e;
+        }
+        assertNotNull(thrown);
+        assertTrue(item.hasNoIngredients());
+    }
+
+
+    /**
      * Tests rejecting a null name.
      */
     public void testNullName()
@@ -100,13 +134,16 @@ public class TestMenuItem
     /**
      * Tests rejecting a name containing only whitespace.
      */
-    public void testBlankName() {
+    public void testBlankName()
+    {
         Exception thrown = null;
 
-        try {
+        try
+        {
             new FoodItem("", "Bakery");
         }
-        catch (IllegalArgumentException e) {
+        catch (IllegalArgumentException e)
+        {
             thrown = e;
         }
 
