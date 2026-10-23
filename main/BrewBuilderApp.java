@@ -287,14 +287,25 @@ public class BrewBuilderApp
 
                 try
                 {
-                    if (!name.equalsIgnoreCase("Milk")
-                        && !name.equalsIgnoreCase("Sugar")
-                        && !name.equalsIgnoreCase("Cream")
-                        && !name.equalsIgnoreCase("Whipped Cream")
-                        && !name.equalsIgnoreCase("Cinnamon")
-                        && !name.equalsIgnoreCase("Caramel"))
-                    {
+                    boolean validIngredient;
 
+                    if (item.getName().equalsIgnoreCase("Bagel"))
+                    {
+                        validIngredient = name.equalsIgnoreCase("Butter")
+                            || name.equalsIgnoreCase("Cream Cheese");
+                    }
+                    else
+                    {
+                        validIngredient = name.equalsIgnoreCase("Milk")
+                            || name.equalsIgnoreCase("Sugar")
+                            || name.equalsIgnoreCase("Cream")
+                            || name.equalsIgnoreCase("Whipped Cream")
+                            || name.equalsIgnoreCase("Cinnamon")
+                            || name.equalsIgnoreCase("Caramel");
+                    }
+
+                    if (!validIngredient)
+                    {
                         System.out.println(
                             "Invalid ingredient. Please enter a valid ingredient.");
                         continue;
@@ -324,6 +335,14 @@ public class BrewBuilderApp
                     }
 
                     System.out.print("Enter ingredient number to remove: ");
+                    if (!input.hasNextInt())
+                    {
+                        System.out.println(
+                            "Invalid ingredient number. Please enter a number.");
+                        input.nextLine();
+                        continue;
+                    }
+
                     int index = input.nextInt();
                     input.nextLine();
 
