@@ -10,7 +10,8 @@ public class Ingredient
     /**
      * Creates an ingredient.
      *
-     * @param name the ingredient name
+     * @param name
+     *            the ingredient name
      */
     public Ingredient(String name)
     {
@@ -23,6 +24,7 @@ public class Ingredient
         this.name = name.trim();
     }
 
+
     /**
      * @return the ingredient name
      */
@@ -31,11 +33,13 @@ public class Ingredient
         return name;
     }
 
+
     @Override
     public String toString()
     {
         return name;
     }
+
 
     @Override
     public boolean equals(Object obj)
@@ -54,10 +58,10 @@ public class Ingredient
         return name.equalsIgnoreCase(other.name);
     }
 
+
     @Override
     public int hashCode()
     {
-        return name.toLowerCase(
-            java.util.Locale.ROOT).hashCode();
+        return name.toLowerCase(java.util.Locale.ROOT).hashCode();
     }
 }
