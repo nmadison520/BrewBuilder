@@ -203,56 +203,58 @@ public class BrewBuilderApp
                 }
             }
 
+            System.out.println();
+            System.out.println("Final Order:");
+            System.out.println(currentOrder.reviewOrder());
+
+            rewards.addOrderPoints(currentOrder.getSize());
+            System.out.println();
+            System.out.println("Order Completed!");
+            System.out.println("Reward Points: " + rewards.getPoints());
+            System.out.println("Reward Level: " + rewards.getRewardLevel());
+            System.out
+                .println("Orders Completed: " + rewards.getOrdersFulfilled());
+
+            if (rewards.canRedeem())
+            {
                 System.out.println();
-                System.out.println("Final Order:");
-                System.out.println(currentOrder.reviewOrder());
+                System.out
+                    .println("You have enough points to redeem a reward!");
 
-                rewards.addOrderPoints(currentOrder.getSize());
-                System.out.println();
-                System.out.println("Order Completed!");
-                System.out.println("Reward Points: " + rewards.getPoints());
-                System.out.println("Reward Level: " + rewards.getRewardLevel());
-                System.out.println(
-                    "Orders Completed: " + rewards.getOrdersFulfilled());
-
-                if (rewards.canRedeem())
-                {
-                    System.out.println();
-                    System.out
-                        .println("You have enough points to redeem a reward!");
-
-                }
-
-                System.out.println();
-                System.out.println("Would you like to start a new order?");
-                System.out.println("1- Yes");
-                System.out.println("2- No");
-
-                int again = input.nextInt();
-
-                if (again == 1)
-                {
-                    keepRunning = true;
-                }
-                else
-                {
-                    keepRunning = false;
-                }
             }
 
             System.out.println();
-            System.out.println("Thanks for using BrewBuilder!");
-            System.out.println("Final reward points: "
-                + rewards.getPoints());
+            System.out.println("Would you like to start a new order?");
+            System.out.println("1- Yes");
+            System.out.println("2- No");
 
-            input.close();
+            int again = input.nextInt();
+
+            if (again == 1)
+            {
+                keepRunning = true;
+            }
+            else
+            {
+                keepRunning = false;
+            }
         }
-    
+
+        System.out.println();
+        System.out.println("Thanks for using BrewBuilder!");
+        System.out.println("Final reward points: " + rewards.getPoints());
+
+        input.close();
+    }
+
+
     /**
      * Lets the customer add or remove ingredients from a menu item.
      *
-     * @param item the item being customized
-     * @param input scanner for customer input
+     * @param item
+     *            the item being customized
+     * @param input
+     *            scanner for customer input
      */
     private void customizeIngredients(MenuItem item, Scanner input)
     {
@@ -262,13 +264,19 @@ public class BrewBuilderApp
         {
             System.out.println();
             System.out.println("Customize " + item.getName());
-            System.out.println("Current ingredients: "
-                + item.getIngredients());
+            System.out.println("Current ingredients: " + item.getIngredients());
             System.out.println("1 - Add ingredient");
             System.out.println("2 - Remove ingredient");
             System.out.println("3 - Finish customizing");
             System.out.print("Enter your choice: ");
 
+            if (!input.hasNextInt())
+            {
+                System.out.println(
+                    "Invalid Choice. Please enter  a number " + "from 1 to 3.");
+                input.nextLine();
+                continue;
+            }
             int choice = input.nextInt();
             input.nextLine();
 
@@ -279,6 +287,18 @@ public class BrewBuilderApp
 
                 try
                 {
+                    if (!name.equalsIgnoreCase("Milk")
+                        && !name.equalsIgnoreCase("Sugar")
+                        && !name.equalsIgnoreCase("Cream")
+                        && !name.equalsIgnoreCase("Whipped Cream")
+                        && !name.equalsIgnoreCase("Cinnamon")
+                        && !name.equalsIgnoreCase("Caramel"))
+                    {
+
+                        System.out.println(
+                            "Invalid ingredient. Please enter a valid ingredient.");
+                        continue;
+                    }
                     item.addIngredient(name);
                     System.out.println(name + " added.");
                 }
@@ -299,8 +319,8 @@ public class BrewBuilderApp
 
                     for (int i = 0; i < item.getIngredientCount(); i++)
                     {
-                        System.out.println((i + 1) + " - "
-                            + item.getIngredient(i));
+                        System.out
+                            .println((i + 1) + " - " + item.getIngredient(i));
                     }
 
                     System.out.print("Enter ingredient number to remove: ");
@@ -328,4 +348,3 @@ public class BrewBuilderApp
         }
     }
 }
-
